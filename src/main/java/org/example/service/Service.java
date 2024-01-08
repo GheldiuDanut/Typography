@@ -1,5 +1,7 @@
 package org.example.service;
 
+import org.example.entity.Author;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -14,7 +16,5 @@ public interface Service<T>{
 
     void update(T t, String... args);
 
-    boolean exists(String name);
-
-    void findByName(String name);
+    Optional<Author> findByName(String name);
 }

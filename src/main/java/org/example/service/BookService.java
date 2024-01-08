@@ -2,6 +2,7 @@ package org.example.service;
 
 import org.example.DAO.BookDAOImpl;
 import org.example.DAO.DAO;
+import org.example.entity.Author;
 import org.example.entity.Book;
 
 import java.util.List;
@@ -41,12 +42,10 @@ public class BookService implements Service<Book>{
     }
 
     @Override
-    public boolean exists(String name) {
-        return false;
+    public Optional<Author> findByName(String name) {
+        return Optional.empty();
     }
 
-    @Override
-    public void findByName(String name) {
 
     }
-}
+
