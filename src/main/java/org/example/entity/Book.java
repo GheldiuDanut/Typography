@@ -1,6 +1,5 @@
 package org.example.entity;
 
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,24 +14,24 @@ import java.util.List;
 @Setter
 @ToString
 @NoArgsConstructor
-
 public class Book {
-    public Book(String name) {
-        this.name = name;
-    }
+  public Book(String name) {
+    this.name = name;
+  }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Integer id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
 
-    @Column(unique = true, name = "book_name")
-    private String name;
+  @Column(unique = true, name = "book_name")
+  private String name;
 
-    @ManyToMany(mappedBy = "books")
+  @ManyToMany(mappedBy = "books", fetch = FetchType.EAGER)
+  private List<Author> authors = new ArrayList<>();
 
-    private List<Author>authors = new ArrayList<>();
+  public void addAuthor(final Author author) {
+    author.addBook(this);
+    this.authors.add(author);
 
-    public void addAuthor(final Author author){
-        this.authors.add(author);
-    }
+  }
 }

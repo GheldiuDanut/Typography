@@ -11,44 +11,38 @@ import java.util.Optional;
 
 public class AuthorService implements Service<Author> {
 
-    private final DAO<Author> authorDAO;
+  private final DAO<Author> authorDAO;
 
-    private final DAO<Book> bookDAO;
+  private final DAO<Book> bookDAO;
 
-    public AuthorService() {
-        this.authorDAO = new AuthorDAOImpl();
-        this.bookDAO = new BookDAOImpl();
-    }
+  public AuthorService() {
+    this.authorDAO = new AuthorDAOImpl();
+    this.bookDAO = new BookDAOImpl();
+  }
 
-    @Override
-    public List<Author> getAll() {
-        return authorDAO.getAll();
-    }
+  @Override
+  public List<Author> getAll() {
+    return authorDAO.getAll();
+  }
 
-    @Override
-    public Optional<Author> getById(Integer id) {
-        return authorDAO.getById(id);
-    }
+  @Override
+  public Optional<Author> getById(Integer id) {
+    return authorDAO.getById(id);
+  }
 
-    @Override
-    public Author persist(Author author) {
-        return authorDAO.persist(author);
-    }
+  @Override
+  public void persist(Author author) {
+    authorDAO.persist(author);
+  }
 
-    @Override
-    public void delete(Author author) {
+  @Override
+  public void delete(Author author) {
     authorDAO.delete(author);
-    }
+  }
 
-    @Override
-    public void update(Author author, String... args) {
+  @Override
+  public void update(Author author, String... args) {
     authorDAO.update(author, args);
-    }
+  }
 
-    @Override
-    public Optional<Author> findByName(String name) {
-       return authorDAO.getByName(name);
-    }
-
-
-    }
+}
