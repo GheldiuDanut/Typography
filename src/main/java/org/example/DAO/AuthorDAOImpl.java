@@ -71,7 +71,7 @@ public class AuthorDAOImpl implements DAO<Author> {
     @Override
     public Optional<Author> getByName(String name) {
         openSession();
-        String query = "SELECT Danut d WHERE d.authorName = :name" ;
+        String query = "FROM Author a WHERE a.authorName = :name" ;
         Query<Author> authorQuery = session.createQuery(query,Author.class);
         authorQuery.setParameter("name",name);
        Optional<Author> singleResult = Optional.ofNullable(authorQuery.getSingleResultOrNull());

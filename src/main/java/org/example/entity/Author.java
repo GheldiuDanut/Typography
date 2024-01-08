@@ -10,7 +10,7 @@ import lombok.ToString;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "Danut")
+@Entity(name = "Author")
 @Setter
 @Getter
 @ToString
@@ -34,6 +34,10 @@ public class Author {
             inverseJoinColumns = @JoinColumn(name = "book_id")
     )
     private List<Book>books = new ArrayList<>();
+
+    public Author(String authorName) {
+        this.authorName = authorName;
+    }
 
     public void addBook(Book book){
         book.addAuthor(this);
