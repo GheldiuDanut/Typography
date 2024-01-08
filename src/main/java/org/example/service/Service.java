@@ -14,7 +14,7 @@ public interface Service<T>{
 
     void update(T t, String... args);
 
-    boolean exists(String name);
+    Optional<T> exists(String name);
 
     void findByName(String name);
 }

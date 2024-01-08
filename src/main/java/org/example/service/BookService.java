@@ -41,8 +41,8 @@ public class BookService implements Service<Book>{
     }
 
     @Override
-    public boolean exists(String name) {
-        return false;
+    public Optional<Book> exists(String name) {
+        return Optional.empty();
     }
 
     @Override
