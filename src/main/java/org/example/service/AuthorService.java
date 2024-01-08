@@ -46,12 +46,9 @@ public class AuthorService implements Service<Author> {
     }
 
     @Override
-    public Optional<Author> exists(String name) {
+    public Optional<Author> findByName(String name) {
        return authorDAO.getByName(name);
     }
 
-    @Override
-    public void findByName(String name) {
 
     }
-}
