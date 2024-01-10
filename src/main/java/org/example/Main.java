@@ -24,7 +24,7 @@ public class Main {
     author.setAuthorName("Danut");
     author.setAge(25);
 
-    author.addBook(new Book("Noua carte"));
+    author.addBook(new Book("Noua carte2"));
 
     authorService.persist(author);
 
